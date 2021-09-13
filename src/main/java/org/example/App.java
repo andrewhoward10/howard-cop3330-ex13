@@ -11,13 +11,13 @@ public class App
     public static void main( String[] args )
     {
         int numYears, afterYears;
-        double principal, interest, acabou ;
+        double principal, interest, total ;
 
         Scanner keyboardInput = new Scanner(System.in);
         System.out.print("Enter the principal: ");
         principal = keyboardInput.nextDouble();
 
-        System.out.print("Enter the rate of interest: ");
+        System.out.print("Enter the rate: ");
         interest = keyboardInput.nextDouble();
 
         System.out.print("Enter the number of years: ");
@@ -26,9 +26,10 @@ public class App
         System.out.print("What is the number of times the interest is compounded per year? ");
         afterYears = keyboardInput.nextInt();
 
-        acabou = principal * Math.pow((1 + interest/afterYears), (afterYears*numYears));
+        total = (1 + (interest / 100) / afterYears);
+        total = principal * Math.pow(total, (afterYears * numYears));
 
-        System.out.print("$" + principal + " invested at " + interest + "% for " + numYears + " years compounded " + afterYears + " times per year is $" + String.format("%.2f", acabou) );
+        System.out.print("$" + principal + " invested at " + interest + "% for " + numYears + " years compounded " + afterYears + " times per year is $" + String.format("%.2f", total) );
     }
 }
 
